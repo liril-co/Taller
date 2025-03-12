@@ -23,6 +23,7 @@
                             <td><input value="{{ old('descripcion', $categoriaInstance['descripcion']) }}" type="text" name="descripcion" id="descripcion" placeholder="Descripción"></td>
                             <td>
                                 <button title="Guardar ediciones">✔</button>
+                                <a href="{{ route('categoria.index') }}"><button type="button" title="No guardar ediciones">✖</button></a>
                             </td>
                         </tr>
                     </form>

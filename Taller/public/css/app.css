@@ -67,7 +67,8 @@ header nav{
       padding: 10px;
       align-items: center;
       & .precio::before{
-        content: "$ ";
+        content: "Precio: $";
+        font-weight: bold;
       }
       & .agregar-compra{
         padding: 5px;
@@ -118,7 +119,8 @@ header nav{
     justify-content: space-between;
     padding: 10px;
     & .precio::before{
-      content: "$ ";
+      content: "Precio: $";
+      font-weight: bold;
     }
   }
   & .detalles{
@@ -155,6 +157,13 @@ header nav{
     place-content: center;
     grid-template-columns: 100%;
     text-align: center;
+  }
+  & fieldset{
+    width: 100%;
+    padding: 0.4em;
+    & legend{
+      font-size: 0.7em;
+    }
   }
   & input{
     width: 100%;

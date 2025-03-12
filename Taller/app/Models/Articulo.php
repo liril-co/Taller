@@ -12,15 +12,10 @@ class Articulo extends Model
         'titulo',
         'contenido',
         'imagen_destacada',
-        'autor_id',
+        'autor',
         'categoria_blog_id',
         'fecha_publicacion',
     ];
-
-    public function autor()
-    {
-        return $this->belongsTo(User::class, 'autor_id');
-    }
 
     public function categoriaBlog()
     {

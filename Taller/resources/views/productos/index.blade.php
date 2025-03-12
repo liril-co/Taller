@@ -25,7 +25,7 @@
                     <button title="Añadir al carrito" class="agregar-compra">🛒</button>
                 </div>
                 <div class="detalles">
-                    <a href="{{ route('producto.show', $producto) }}">Ver detalles</a>
+                    <a href="{{ route('producto.show', parameters: $producto) }}">Ver detalles</a>
                     <div class="actions">
                         <a href="{{ route('producto.edit', $producto) }}">
                             <button title="Editar producto">🖊</button>
