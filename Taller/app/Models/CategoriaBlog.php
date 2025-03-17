@@ -16,6 +16,6 @@ class CategoriaBlog extends Model
 
     public function articulos()
     {
-        return $this->hasMany(Articulo::class, 'categoria_blog_id');
+        return $this->hasMany(Articulo::class);
     }
 }

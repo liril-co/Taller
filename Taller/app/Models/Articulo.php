@@ -19,6 +19,6 @@ class Articulo extends Model
 
     public function categoriaBlog()
     {
-        return $this->belongsTo(CategoriaBlog::class, 'categoria_blog_id');
+        return $this->belongsTo(CategoriaBlog::class);
     }
 }
