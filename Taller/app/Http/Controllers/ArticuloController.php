@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ArticuloRequest;
 use App\Models\Articulo;
+use App\Models\CategoriaBlog;
 use Illuminate\Http\Request;
 
 class ArticuloController extends Controller
@@ -12,7 +14,8 @@ class ArticuloController extends Controller
      */
     public function index()
     {
-        //
+        $articulos= Articulo::latest()->paginate(3);
+        return view('articulos.index', compact('articulos'));
     }
 
     /**
@@ -20,23 +23,25 @@ class ArticuloController extends Controller
      */
     public function create()
     {
-        //
+        $categoriasBlog= CategoriaBlog::latest()->get();
+        return view('articulos.create', compact('categoriasBlog'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ArticuloRequest $request)
     {
-        //
-    }
+        Articulo::create($request->validated());
 
+        return redirect()->route('articulo.index');
+    }
     /**
      * Display the specified resource.
      */
     public function show(Articulo $articulo)
     {
-        //
+        return view('articulos.show', compact('articulo'));
     }
 
     /**
@@ -44,15 +49,17 @@ class ArticuloController extends Controller
      */
     public function edit(Articulo $articulo)
     {
-        //
+        $categoriasBlog= CategoriaBlog::latest()->get();
+        return view('articulos.edit', compact('articulo', 'categoriasBlog'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Articulo $articulo)
+    public function update(ArticuloRequest $request, Articulo $articulo)
     {
-        //
+        $articulo->update($request->validated());
+        return redirect()->route('articulo.show', $articulo);
     }
 
     /**
@@ -60,6 +67,7 @@ class ArticuloController extends Controller
      */
     public function destroy(Articulo $articulo)
     {
-        //
+        $articulo->delete();
+        return redirect()->route('articulo.index');
     }
 }

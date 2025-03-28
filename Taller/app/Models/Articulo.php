@@ -21,4 +21,9 @@ class Articulo extends Model
     {
         return $this->belongsTo(CategoriaBlog::class);
     }
+
+    public function comentarios()
+    {
+        return $this->hasMany(Comentario::class);
+    }
 }

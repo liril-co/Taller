@@ -14,12 +14,12 @@ class ProductoController extends Controller
      */
     public function index(Request $request)
     {
-        $categorias = Categoria::all(); // Obtener todas las categorías
+        $categorias = Categoria::all();
 
         $productos = Producto::when($request->categoria, function ($query, $categoriaId) {
             return $query->where('categoria_id', $categoriaId);
         })->get();
-
+        
         return view('productos.index', compact('productos', 'categorias'));
     }
 

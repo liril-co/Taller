@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ComentarioRequest;
+use App\Models\Articulo;
 use App\Models\Comentario;
 use Illuminate\Http\Request;
 
@@ -26,9 +28,12 @@ class ComentarioController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ComentarioRequest $request)
     {
-        //
+
+        Comentario::create($request->validated());
+
+        return redirect()->route('articulo.show', $request->articulo_id);
     }
 
     /**
@@ -44,15 +49,16 @@ class ComentarioController extends Controller
      */
     public function edit(Comentario $comentario)
     {
-        //
+        return view('comentarios.edit', compact('comentario'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Comentario $comentario)
+    public function update(ComentarioRequest $request, Comentario $comentario)
     {
-        //
+        $comentario->update($request->validated());
+        return redirect()->route('articulo.show', $comentario->articulo_id);
     }
 
     /**
@@ -60,6 +66,7 @@ class ComentarioController extends Controller
      */
     public function destroy(Comentario $comentario)
     {
-        //
+        $comentario->delete();
+        return redirect()->route('articulo.show', $comentario->articulo_id);
     }
 }

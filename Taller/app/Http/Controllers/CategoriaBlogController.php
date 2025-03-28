@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CategoriaBlogRequest;
 use App\Models\CategoriaBlog;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,8 @@ class CategoriaBlogController extends Controller
      */
     public function index()
     {
-        //
+        $categoriaBlogs= CategoriaBlog::all();
+        return view('categoriasBlog.index', compact('categoriaBlogs'));
     }
 
     /**
@@ -26,9 +28,11 @@ class CategoriaBlogController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CategoriaBlogRequest $request)
     {
-        //
+        CategoriaBlog::create($request->validated());
+
+        return redirect()->route('categoriaBlog.index');
     }
 
     /**
@@ -44,15 +48,18 @@ class CategoriaBlogController extends Controller
      */
     public function edit(CategoriaBlog $categoriaBlog)
     {
-        //
+        $categoriaBlogs = CategoriaBlog::all();
+
+        return view('categoriasBlog.edit', compact('categoriaBlog', 'categoriaBlogs'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, CategoriaBlog $categoriaBlog)
+    public function update(CategoriaBlogRequest $request, CategoriaBlog $categoriaBlog)
     {
-        //
+        $categoriaBlog->update($request->validated());
+        return redirect()->route('categoriaBlog.index');
     }
 
     /**
@@ -60,6 +67,7 @@ class CategoriaBlogController extends Controller
      */
     public function destroy(CategoriaBlog $categoriaBlog)
     {
-        //
+        $categoriaBlog->delete();
+        return redirect()->route('categoriaBlog.index');
     }
 }

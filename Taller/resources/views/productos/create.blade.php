@@ -5,12 +5,10 @@
 @section('content')
     <form method="POST" action="{{ route('producto.store') }}" class="producto_nuevo">
         @csrf
-        <div class="img">
             <fieldset>
                 <legend>Url de la imagen del producto</legend>
                 <input type="url" name="imagen" id="url">
             </fieldset>
-        </div>
         <fieldset>
             <legend>Nombre del producto</legend>
             <input type="text" name="nombre" id="nombre">
@@ -39,7 +37,7 @@
         <button>Agregar producto</button>
     </form>
     @if($errors->any())
-        <div  class="errors">
+        <div class="errors">
             @foreach($errors->all() as $error)
                 <p>{{  $error }}</p>
             @endforeach

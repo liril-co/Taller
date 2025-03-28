@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Nuevo producto')
+@section('title', 'Editar producto')
 
 @section('content')
     <form method="POST" action="{{ route('producto.update', $producto) }}" class="editar_producto">
