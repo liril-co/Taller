@@ -41,4 +41,5 @@ return [
     'comment' => 'Comentar',
     'editComment' => 'Editar comentario',
     'deleteComment' => 'Eliminar comentario',
+    'saveEditions' => 'Guardar ediciones',
 ];
