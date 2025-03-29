@@ -7,9 +7,9 @@
         <table class="categorias">
             <thead>
                 <tr>
-                    <th>Nombre</th>
-                    <th>Descripción</th>
-                    <th>Acciones</th>
+                    <th>{{ __('messages.name') }}</th>
+                    <th>{{ __('messages.description') }}</th>
+                    <th>{{ __('messages.actions') }}</th>
                 </tr>
             </thead>
             <tbody>
@@ -19,22 +19,22 @@
                         <td>{{ $categoriaBlog->descripcion }}</td>
                         <td>
                             <a href="{{ route('categoria.edit', $categoriaBlog ) }}">
-                                <button title="Editar categoria">🖊</button>
+                                <button title="{{ __('messages.editCategory') }}">🖊</button>
                             </a>
                             <form action="{{ route('categoria.delete', $categoriaBlog) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button title="Eliminar categoria">🗑</button>
+                                <button title="{{ __('messages.deleteCategory') }}">🗑</button>
                             </form>
                         </td>
                     </tr>      
                 @endforeach
                 <form method="POST" action="{{ route('categoria.store') }}">
                     @csrf
-                    <td><input type="text" name="nombre" id="nombre" placeholder="Nombre"></td>
-                    <td><input type="text" name="descripcion" id="descripcion" placeholder="Descripción"></td>
+                    <td><input type="text" name="nombre" id="nombre" placeholder="{{ __('messages.name') }}"></td>
+                    <td><input type="text" name="descripcion" id="descripcion" placeholder="{{ __('messages.description') }}"></td>
                     <td>
-                        <button title="Agregar categoría">➕</button>
+                        <button title="{{ __('messages.addCategory') }}">➕</button>
                     </td>
                 </form>
             </tbody>

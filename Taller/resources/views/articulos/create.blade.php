@@ -6,35 +6,35 @@
     <form method="POST" action="{{ route('articulo.store') }}" class="articulo_nuevo">
         @csrf
             <fieldset>
-                <legend>Url de la imagen destacada del artículo</legend>
+                <legend>{{ __('messages.imageUrlArticle') }}</legend>
                 <input type="url" name="imagen_destacada" id="url">
             </fieldset>
         <fieldset>
-            <legend>Título del artículo</legend>
+            <legend>{{ __('messages.ArticleTitle') }}</legend>
             <input type="text" name="titulo" id="titulo">
         </fieldset>
         <fieldset>
-            <legend>Contenido del artículo</legend>
+            <legend>{{ __('messages.ArticleContent') }}</legend>
             <input type="text" name="contenido" id="contenido">
         </fieldset>
         <fieldset>
-            <legend>Autor</legend>
+            <legend>{{ __('messages.ArticleAutor') }}</legend>
             <input type="text" name="autor" id="autor">
         </fieldset>
         <fieldset>
-            <legend>Categoría del blog</legend>
+            <legend>{{ __('messages.ArticleCategory') }}</legend>
             <select name="categoria_blog_id" id="categoria-blog" autocomplete="off">
-                <option value="null" selected disabled hidden>Seleccione una categoría</option>
+                <option value="null" selected disabled hidden>{{ __('messages.ArticleCategorySelect') }}</option>
                 @foreach ($categoriasBlog as $categoriaBlog)
                     <option value="{{ $categoriaBlog->id }}">{{ $categoriaBlog->nombre }}</option>
                 @endforeach
             </select>
         </fieldset>
         <fieldset>
-            <legend>Fecha de publicación</legend>
+            <legend>{{ __('messages.ArticlePublication') }}</legend>
             <input type="date" name="fecha_publicacion" id="fecha_publicacion">
         </fieldset>
-        <button>Publicar artículo</button>
+        <button>{{ __('messages.ArticlePublish') }}</button>
     </form>
     @if($errors->any())
         <div class="errors">

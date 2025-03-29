@@ -6,6 +6,7 @@ use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\ComentarioController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Session;
 
 Route::get('/', function () {
     return view('welcome');
@@ -65,4 +66,4 @@ Route::delete('/comentario/{comentario}', [ComentarioController::class, 'destroy
 
 Route::get('/comentario/edit/{comentario}', [ComentarioController::class, 'edit'])->name('comentario.edit');
 
-Route::patch('/comentario/{comentario}', [ComentarioController::class, 'update'])->name('comentario.update');
+Route::patch('/comentario/{comentario}', [ComentarioController::class, 'update'])->name('comentario.update');;

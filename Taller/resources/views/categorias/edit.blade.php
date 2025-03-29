@@ -7,9 +7,9 @@
         <table class="categorias">
             <thead>
                 <tr>
-                    <th>Nombre</th>
-                    <th>Descripción</th>
-                    <th>Acciones</th>
+                    <th>{{ __('messages.name') }}</th>
+                    <th>{{ __('messages.description') }}</th>
+                    <th>{{ __('messages.actions') }}</th>
                 </tr>
             </thead>
             <tbody>
@@ -19,11 +19,11 @@
                         <tr>
                             @csrf
                             @method('PATCH')
-                            <td><input value="{{ old('nombre', $categoriaInstance['nombre']) }}" type="text" name="nombre" id="nombre" placeholder="Nombre"></td>
-                            <td><input value="{{ old('descripcion', $categoriaInstance['descripcion']) }}" type="text" name="descripcion" id="descripcion" placeholder="Descripción"></td>
+                            <td><input value="{{ old('nombre', $categoriaInstance['nombre']) }}" type="text" name="nombre" id="nombre" placeholder="{{ __('messages.name') }}"></td>
+                            <td><input value="{{ old('descripcion', $categoriaInstance['descripcion']) }}" type="text" name="descripcion" id="descripcion" placeholder="{{ __('messages.description') }}"></td>
                             <td>
-                                <button title="Guardar ediciones">✔</button>
-                                <a href="{{ route('categoria.index') }}"><button type="button" title="No guardar ediciones">✖</button></a>
+                                <button title="{{ __('messages.acceptEditions') }}">✔</button>
+                                <a href="{{ route('categoria.index') }}"><button type="button" title="{{ __('messages.discardEditions') }}">✖</button></a>
                             </td>
                         </tr>
                     </form>
@@ -33,12 +33,12 @@
                             <td>{{ $categoriaInstance->descripcion }}</td>
                             <td>
                                 <a href="{{ route('categoria.edit', $categoriaInstance ) }}">
-                                    <button title="Editar categoria">🖊</button>
+                                    <button title="{{ __('messages.editCategory') }}">🖊</button>
                                 </a>
                                 <form action="{{ route('categoria.delete', $categoriaInstance) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <button title="Eliminar categoria">🗑</button>
+                                    <button title="{{ __('messages.deleteCategory') }}">🗑</button>
                                 </form>
                             </td>
                         </tr>  
@@ -48,10 +48,10 @@
                 <form method="POST" action="{{ route('categoria.store') }}">
                     @csrf
                     <tr>
-                        <td><input type="text" name="nombre" id="nombre" placeholder="Nombre"></td>
-                        <td><input type="text" name="descripcion" id="descripcion" placeholder="Descripción"></td>
+                        <td><input type="text" name="nombre" id="nombre" placeholder="{{ __('messages.name') }}"></td>
+                        <td><input type="text" name="descripcion" id="descripcion" placeholder="{{ __('messages.description') }}"></td>
                         <td>
-                            <button title="Agregar categoría">➕</button>
+                            <button title="{{ __('messages.addCategory') }}">➕</button>
                         </td>
                     </tr>
                 </form>

@@ -24,7 +24,6 @@
             </a>
         </nav>
     </header>
-
     <main>
         @yield('content')
     </main>

@@ -7,23 +7,23 @@
         @csrf
         @method('PATCH')
             <fieldset>
-                <legend>Url de la imagen destacada del artículo</legend>
+                <legend>{{ __('messages.imageUrlArticle') }}</legend>
                 <input value="{{ old('imagen_destacada', $articulo['imagen_destacada']) }}" type="url" name="imagen_destacada" id="url">
             </fieldset>
         <fieldset>
-            <legend>Título del artículo</legend>
+            <legend>{{ __('messages.ArticleTitle') }}</legend>
             <input value="{{ old('titulo', $articulo['titulo']) }}" type="text" name="titulo" id="titulo">
         </fieldset>
         <fieldset>
-            <legend>Contenido del artículo</legend>
+            <legend>{{ __('messages.ArticleContent') }}</legend>
             <textarea type="text" name="contenido" id="contenido">{{ old('contenido', $articulo['contenido']) }}</textarea>
         </fieldset>
         <fieldset>
-            <legend>Autor</legend>
+            <legend>{{ __('messages.ArticleAutor') }}</legend>
             <input value="{{ old('autor', $articulo['autor']) }}" type="text" name="autor" id="autor">
         </fieldset>
         <fieldset>
-            <legend>Categoría del blog</legend>
+            <legend>{{ __('messages.ArticleCategory') }}</legend>
             <select name="categoria_blog_id" id="categoria-blog" autocomplete="off">
                 @foreach ($categoriasBlog as $categoriaBlog)
                     <option value="{{ $categoriaBlog->id }}" @if(old('categoria_blog_id', $articulo['categoria_blog_id']) == $categoriaBlog->id ) selected @endif>{{ $categoriaBlog->nombre }}</option>
@@ -31,10 +31,10 @@
             </select>
         </fieldset>
         <fieldset>
-            <legend>Fecha de publicación</legend>
+            <legend>{{ __('messages.ArticlePublication') }}</legend>
             <input value="{{ old('fecha_publicacion', $articulo['fecha_publicacion']) }}" type="date" name="fecha_publicacion" id="fecha_publicacion">
         </fieldset>
-        <button>Actualizar artículo</button>
+        <button>{{ __('messages.UpdateArticle') }}</button>
     </form>
     @if($errors->any())
         <div class="errors">

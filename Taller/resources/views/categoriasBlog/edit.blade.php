@@ -7,9 +7,9 @@
         <table class="categorias">
             <thead>
                 <tr>
-                    <th>Nombre</th>
-                    <th>Descripción</th>
-                    <th>Acciones</th>
+                    <th>{{ __('messages.name') }}</th>
+                    <th>{{ __('messages.description') }}</th>
+                    <th>{{ __('messages.actions') }}</th>
                 </tr>
             </thead>
             <tbody>
@@ -19,11 +19,11 @@
                         <tr>
                             @csrf
                             @method('PATCH')
-                            <td><input value="{{ old('nombre', $categoriaInstance['nombre']) }}" type="text" name="nombre" id="nombre" placeholder="Nombre"></td>
-                            <td><input value="{{ old('descripcion', $categoriaInstance['descripcion']) }}" type="text" name="descripcion" id="descripcion" placeholder="Descripción"></td>
+                            <td><input value="{{ old('nombre', $categoriaInstance['nombre']) }}" type="text" name="nombre" id="nombre" placeholder="{{ __('messages.name') }}"></td>
+                            <td><input value="{{ old('descripcion', $categoriaInstance['descripcion']) }}" type="text" name="descripcion" id="descripcion" placeholder="{{ __('messages.description') }}"></td>
                             <td>
-                                <button title="Guardar ediciones">✔</button>
-                                <a href="{{ route('categoria.index') }}"><button type="button" title="No guardar ediciones">✖</button></a>
+                                <button title="{{ __('messages.acceptEditions') }}">✔</button>
+                                <a href="{{ route('categoria.index') }}"><button type="button" title="{{ __('messages.discardEditions') }}">✖</button></a>
                             </td>
                         </tr>
                     </form>

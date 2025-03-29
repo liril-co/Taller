@@ -41,6 +41,15 @@ header nav{
     }
   }
 }
+
+.pagination {
+  display: flex;
+  & li{
+    display: grid;
+    width: 1em;
+    place-content: center;
+  }
+}
 .productos {
   display: flex;
   flex-wrap: wrap;
@@ -136,7 +145,7 @@ header nav{
     }
   }
 }
-.producto_nuevo, .editar_producto{
+.producto_nuevo, .editar_producto, .articulo_nuevo, .editar_articulo{
   display: flex; 
   padding: 6px;
   border: 2px solid gray;
@@ -171,6 +180,9 @@ header nav{
   }
   & select{
     padding: 0.5em;
+  }
+  & textarea{
+    width: 100%;
   }
 
 }
@@ -228,4 +240,76 @@ td {
     margin-left: 8px;
     padding: 0.5em;
   }
+}
+
+.articulo {
+  display: flex;
+  padding: 6px;
+  border: 2px solid gray;
+  flex-direction: column;
+  width: 80%;
+  text-align: center;
+  gap: 4px;
+  margin: 0 auto 1em auto;
+  & .detalles{
+    display: flex;
+    gap: 5px;
+    justify-content: end;
+    align-items: center;
+    & .actions{
+      display: flex;
+      gap: 5px;
+    }
+  }
+}
+
+
+.comentario {
+  display: flex;
+    padding: 6px;
+    border: 2px solid gray;
+    flex-direction: column;
+  text-align: start;
+    gap: 4px;
+  margin-bottom: 10px;
+  & .info{
+    margin-bottom: 10px;
+  }
+  & .autor{
+    font-weight: bold;
+  }
+  & .acciones{
+    display: flex;
+    justify-content: end;
+    gap: 5px;
+  }
+}
+.articulo-show {
+  display: flex;
+  padding: 6px;
+  border: 2px solid gray;
+  flex-direction: column;
+  width: 80%;
+  text-align: center;
+  gap: 4px;
+  margin: 0 auto 1em auto;
+  
+    & .actions{
+      display: flex;
+      gap: 5px;
+    }
+    & .fecha-publicacion{
+      font-size: 0.8em;
+      color: gray;
+      font-style: italic;
+    }
+    & .categoria{
+      font-size: 0.7em;
+      font-weight: bold;
+    }
+}
+.nuevo-comentario form {
+  display: flex;
+  gap: 4px;
+  flex-direction: column;
 }
