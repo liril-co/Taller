@@ -42,4 +42,8 @@ return [
     'editComment' => 'Editar comentario',
     'deleteComment' => 'Eliminar comentario',
     'saveEditions' => 'Guardar ediciones',
+    'Login' => 'Iniciar sesión',
+    'Register' => 'Registrarse',
+    'Logout' => 'Cerrar sesión'
+
 ];

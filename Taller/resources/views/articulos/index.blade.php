@@ -10,16 +10,18 @@
                 <p>{{ $articulo->categoriaBlog->nombre }}</p>
                 <div class="detalles">
                     <a href="{{ route('articulo.show',  $articulo) }}">{{ __('messages.read') }}</a>
-                    <div class="actions">
-                        <a href="{{ route('articulo.edit', $articulo) }}">
-                            <button title="{{ __('messages.editArticle') }}">🖊</button>
-                        </a>
-                        <form action="{{ route('articulo.delete',  $articulo) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button title="{{ __('messages.deleteArticle') }}">🗑</button>
-                        </form>
-                    </div>
+                    @auth
+                        <div class="actions">
+                            <a href="{{ route('articulo.edit', $articulo) }}">
+                                <button title="{{ __('messages.editArticle') }}">🖊</button>
+                            </a>
+                            <form action="{{ route('articulo.delete',  $articulo) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button title="{{ __('messages.deleteArticle') }}">🗑</button>
+                            </form>
+                        </div>
+                    @endauth
                 </div>
             </article>
         @empty
@@ -29,8 +31,10 @@
     </div>
 
     <br>
+    @auth
     <div class="nuevo-articulo">
         <a href="{{ route('articulo.create') }}">{{ __('messages.addArticle') }}</a>
     </div>
+    @endauth
 
 @endsection

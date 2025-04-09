@@ -12,6 +12,7 @@
         <div class="comprar">
             <span class="precio">{{ $producto->precio }}</span><button class="agregar-compra">🛒</button>
         </div>
+        @auth
         <div class="detalles">
             <div class="actions">
                 <a href="{{ route('producto.edit', $producto) }}">
@@ -24,6 +25,7 @@
                 </form>
             </div>
         </div>
+        @endauth
     </div>
        
 @endsection

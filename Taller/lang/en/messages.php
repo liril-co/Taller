@@ -42,4 +42,6 @@ return [
     'editComment' => 'Edit comment',
     'deleteComment' => 'Delete Comment',
     'saveEditions' => 'Save editions',
+    'Login' => 'Login',
+    'Register' => 'Register'
 ];

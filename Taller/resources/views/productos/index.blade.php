@@ -24,6 +24,7 @@
                     <button title="{{ __('messages.addToCart') }}" class="agregar-compra">🛒</button>
                 <div class="detalles">
                     <a href="{{ route('producto.show',  $producto) }}">{{ __('messages.seeDetails') }}</a>
+                    @auth
                     <div class="actions">
                         <a href="{{ route('producto.edit', $producto) }}">
                             <button title="{{ __('messages.editProduct') }}">🖊</button>
@@ -34,14 +35,17 @@
                             <button title="{{ __('messages.deleteProduct') }}">🗑</button>
                         </form>
                     </div>
+                    @endauth
                 </div>
             </div>
         @endforeach
     </div>
 
     <br>
+    @auth
     <div class="nuevo-producto">
         <a href="{{ route('producto.create') }}">{{ __('messages.addNewProduct') }}</a>
     </div>
+    @endauth
 
 @endsection
